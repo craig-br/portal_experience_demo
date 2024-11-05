@@ -3,15 +3,15 @@
 #
 controller_labels:
   - name: rhel
-    # organization: "{{ organization | default('Default') }}"
+    organization: "{{ organization }}"
   - name: configure-timesync
-    # organization: "{{ organization | default('Default') }}"
+    organization: "{{ organization }}"
 
 # Projects
 #
 controller_projects:
   - name: Ansible Portal Operations
-    organization: "{{ organization | default('Default') }}"
+    organization: "{{ organization }}"
     scm_branch: feature-rhel-aa
     scm_clean: false
     scm_delete_on_update: true
@@ -23,7 +23,7 @@ controller_projects:
 #
 controller_execution_environments:
   - name: Ansible Portal Execution Environment
-    image: quay.io/ansible/awx-ee
+    image: ghcr.io/spredzy/my-own-ee:0.0.3
     description: Ansible Portal Execution Environment
 
 # Job Templates
