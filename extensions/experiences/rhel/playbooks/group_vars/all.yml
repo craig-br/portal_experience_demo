@@ -1,0 +1,6 @@
+---
+controller_hostname: '{{ lookup("env", "CONTROLLER_HOST") }}'
+controller_username: '{{ lookup("env", "CONTROLLER_USERNAME") }}'
+controller_password: '{{ lookup("env", "CONTROLLER_PASSWORD") }}'
+controller_oauthtoken: '{{ lookup("env", "CONTROLLER_OAUTH_TOKEN") }}'
+controller_validate_certs: '{{ lookup("env", "CONTROLLER_VERIFY_SSL") }}'

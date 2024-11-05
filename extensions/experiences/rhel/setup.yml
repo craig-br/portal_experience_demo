@@ -3,9 +3,9 @@
 #
 controller_labels:
   - name: rhel
-    organization: "{{ organization | default('Default') }}"
+    # organization: "{{ organization | default('Default') }}"
   - name: configure-timesync
-    organization: "{{ organization | default('Default') }}"
+    # organization: "{{ organization | default('Default') }}"
 
 # Projects
 #
@@ -19,6 +19,12 @@ controller_projects:
     scm_update_on_launch: true
     scm_url: https://github.com/craig-br/portal_experience_demo.git
 
+# Execution Environment
+#
+controller_execution_environments:
+  - name: Ansible Portal Execution Environment
+    image: quay.io/ansible/awx-ee
+    description: Ansible Portal Execution Environment
 
 # Job Templates
 #
@@ -27,9 +33,9 @@ controller_templates:
     ask_inventory_on_launch: true
     playbook: extensions/experiences/rhel/playbooks/configure_timesync.yml
     project: Ansible Portal Operations
-    ask_variables_on_launch: true
     survey_enabled: true
     labels:
       - rhel
       - configure-timesync
-    survey_spec: "{{ lookup('file', 'template_surveys/configure_timesync.yml') }}"
+    survey_spec: "{{ lookup('file', playbook_dir + 'template_surveys/configure_timesync.yml') }}"
+    execution_environment: 
