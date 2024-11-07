@@ -2,7 +2,8 @@
 - name: Windows test playbook
   hosts: all
   become: false
-
+  collections:
+    - ansible.controller
   tasks:
     - name: Print windows msg
       ansible.builtin.debug:
