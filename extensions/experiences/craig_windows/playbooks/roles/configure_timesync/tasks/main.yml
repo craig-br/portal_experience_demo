@@ -1,0 +1,22 @@
+---
+- name: Set Time Server Configuration
+  ansible.builtin.include_role:
+    name: redhat.rhel_system_roles.timesync
+  vars:
+    timesync_ntp_servers: "{{ user_ntp_servers }}"
+    timesync_timezone: "{{ user_timezone }}"
+
+- name: Print Updated Time Sync Status
+  ansible.builtin.command:
+    cmd: timedatectl status
+  changed_when: false
+  register: timesync_status
+
+- name: Display Updated Time Sync Status
+  ansible.builtin.debug:
+    msg: |
+      =====================================
+      Time Sync Status:
+      =====================================
+      {{ timesync_status.stdout }}
+      =====================================
