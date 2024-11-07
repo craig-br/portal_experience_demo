@@ -2,5 +2,7 @@
 - name: Configure timesync using the RHEL System Roles Collection
   hosts: all
   become: true
+  collections:
+    - ansible.controller
   roles:
     - role: configure_timesync
