@@ -1,6 +1,9 @@
 ---
-- name: Configure timesync using the RHEL System Roles Collection
+- name: Windows test playbook
   hosts: all
-  become: true
-  roles:
-    - role: configure_timesync
+  become: false
+
+  tasks:
+    - name: Print windows msg
+      ansible.builtin.debug:
+        msg: "Windows Playbook Craig"
