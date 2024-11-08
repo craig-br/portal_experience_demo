@@ -37,5 +37,6 @@ controller_templates:
     labels:
       - rhel
       - configure-timesync
-    survey_spec: "{{ lookup('file', __tmp_dir.path + '/portal_experience_demo/extensions/experiences/templates/configure_timesync.yml') }}"
+    survey_spec: 
+      - "{{ lookup('file', __tmp_dir.path + '/portal_experience_demo/extensions/experiences/templates/configure_timesync.yml') }}"
     execution_environment: Ansible Portal Execution Environment
