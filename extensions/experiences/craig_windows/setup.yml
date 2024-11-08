@@ -29,7 +29,7 @@ controller_execution_environments:
 # Job Templates
 #
 controller_templates:
-  - name: RHEL / Update RHEL Time Servers
+  - name: RHEL / Update Time Servers
     ask_inventory_on_launch: true
     playbook: extensions/experiences/rhel/playbooks/configure_timesync.yml
     project: Ansible Portal Operations
@@ -37,6 +37,5 @@ controller_templates:
     labels:
       - rhel
       - configure-timesync
-    survey:
-      spec: "{{ lookup('file', __tmp_dir.path + '/portal_experience_demo/extensions/experiences/templates/configure_timesync.yml') | from_yaml }}"
+    survey: "{{ lookup('file', __tmp_dir.path + '/portal_experience_demo/extensions/experiences/templates/configure_timesync.yml') | from_yaml }}"
     execution_environment: Ansible Portal Execution Environment
