@@ -2,15 +2,17 @@
 # Labels
 #
 controller_labels:
-  - name: rhel
+  - name: craig_br.portal_experience_demo
     organization: "{{ organization }}"
-  - name: configure-timesync
+  - name: rhel_experience
+    organization: "{{ organization }}"
+  - name: configure_timesync
     organization: "{{ organization }}"
 
 # Projects
 #
 controller_projects:
-  - name: Ansible Portal Operations
+  - name: RHEL Operations / Project
     organization: "{{ organization }}"
     scm_branch: feature-rhel-aa
     scm_clean: false
@@ -22,21 +24,21 @@ controller_projects:
 # Execution Environment
 #
 controller_execution_environments:
-  - name: Ansible Portal Execution Environment
-    image: quay.io/ansible-product-demos/apd-ee-25:latest
+  - name: RHEL Operations / Execution Environment
+    image: quay.io/acme_corp/aap-experience-ee-25:latest
     description: Ansible Portal Execution Environment
 
 # Job Templates
 #
 controller_templates:
-  - name: RHEL / Update Time Servers
+  - name: RHEL / Update RHEL Time Servers
     ask_inventory_on_launch: true
     playbook: extensions/experiences/rhel/playbooks/configure_timesync.yml
     project: Ansible Portal Operations
     survey_enabled: true
     labels:
-      - rhel
-      - configure-timesync
-    survey: "{{ lookup('file', usecase_path + '/extensions/experiences/templates/configure_windows.yml') | from_yaml }}"
-    # survey: "{{ lookup('file', __tmp_dir.path + '/portal_experience_demo/extensions/experiences/templates/configure_timesync.yml') | from_yaml }}"
-    execution_environment: Ansible Portal Execution Environment
+      - craig_br.portal_experience_demo
+      - rhel_experience
+      - configure_timesync
+    survey_spec: "{{ lookup('file', playbook_dir + 'template_surveys/configure_timesync.yml') }}"
+    execution_environment: RHEL Operations / Execution Environment

@@ -1,0 +1,7 @@
+---
+- name: RHEL patching playbook
+  hosts: all
+  tasks:
+    - name: Print RHEL patching msg
+      ansible.builtin.debug:
+        msg: "RHEL patching Playbook Craig"

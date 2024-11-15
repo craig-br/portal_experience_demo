@@ -1,0 +1,44 @@
+---
+# Labels
+#
+controller_labels:
+  - name: craig_br.portal_experience_demo
+    organization: "{{ organization }}"
+  - name: rhel_patching_experience
+    organization: "{{ organization }}"
+  - name: patch_rhel_systems
+    organization: "{{ organization }}"
+
+# Projects
+#
+controller_projects:
+  - name: RHEL Operations / Project
+    organization: "{{ organization }}"
+    scm_branch: feature-rhel-aa
+    scm_clean: false
+    scm_delete_on_update: true
+    scm_type: git
+    scm_update_on_launch: true
+    scm_url: https://github.com/craig-br/portal_experience_demo.git
+
+# Execution Environment
+#
+controller_execution_environments:
+  - name: RHEL Operations / Execution Environment
+    image: quay.io/acme_corp/aap-experience-ee-25:latest
+    description: Ansible Portal Execution Environment
+
+# Job Templates
+#
+controller_templates:
+  - name: RHEL Operations / Patch RHEL Systems
+    ask_inventory_on_launch: true
+    playbook: extensions/experiences/rhel/playbooks/patch_rhel_systems.yml
+    project: RHEL Operations / Project
+    survey_enabled: true
+    labels:
+      - craig_br.portal_experience_demo
+      - rhel_experience
+      - patch_rhel_systems
+    survey_spec: "{{ lookup('file', experience.path.replace('setup.yml', '') + 'template_surveys/patch_rhel_systems.yml') | from_yaml }}"
+    execution_environment: RHEL Operations / Execution Environment
