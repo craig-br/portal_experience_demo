@@ -3,15 +3,15 @@
 #
 controller_labels:
   - name: rhel
-    organization: "{{ organization }}"
-  - name: configure-timesync
-    organization: "{{ organization }}"
+    organization: "{{ organization_name }}"
+  - name: configure_timesync
+    organization: "{{ organization_name }}"
 
 # Projects
 #
 controller_projects:
-  - name: Ansible Portal Operations
-    organization: "{{ organization }}"
+  - name: RHEL Operations / Project
+    organization: "{{ organization_name }}"
     scm_branch: feature-rhel-aa
     scm_clean: false
     scm_delete_on_update: true
@@ -22,7 +22,7 @@ controller_projects:
 # Execution Environment
 #
 controller_execution_environments:
-  - name: Ansible Portal Execution Environment
+  - name: RHEL Operations / Execution Environment
     image: quay.io/ansible-product-demos/apd-ee-25:latest
     description: Ansible Portal Execution Environment
 

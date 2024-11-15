@@ -5,4 +5,4 @@ controller_password: '{{ lookup("env", "CONTROLLER_PASSWORD") }}'
 controller_oauthtoken: '{{ lookup("env", "CONTROLLER_OAUTH_TOKEN") }}'
 controller_validate_certs: '{{ lookup("env", "CONTROLLER_VERIFY_SSL") }}'
 
-organization: Default
+organization_name: Default

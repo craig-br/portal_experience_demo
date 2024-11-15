@@ -1,6 +1,5 @@
 galaxy_info:
   author: Craig Brandt
-  company: Red Hat, Inc.
   description: This role uses the RHEL Certified Collection to manage Time Servers
 
   license: MIT
