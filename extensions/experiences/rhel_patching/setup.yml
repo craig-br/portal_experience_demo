@@ -40,5 +40,5 @@ controller_templates:
       - craig_br.portal_experience_demo
       - rhel_experience
       - patch_rhel_systems
-    survey_spec: "{{ lookup('file', experience.path.replace('setup.yml', '') + 'template_surveys/patch_rhel_systems.yml') | from_yaml }}"
+    spec: "{{ lookup('file', experience.path.replace('setup.yml', '') + 'template_surveys/patch_rhel_systems.yml') | from_yaml }}"
     execution_environment: RHEL Operations / Execution Environment
