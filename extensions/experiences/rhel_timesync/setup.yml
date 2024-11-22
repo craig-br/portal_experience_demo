@@ -12,7 +12,7 @@ controller_labels:
 # Projects
 #
 controller_projects:
-  - name: RHEL Operations / Project
+  - name: Craig RHEL Operations / Project
     organization: "{{ organization }}"
     scm_branch: feature-rhel-aa
     scm_clean: false
@@ -31,7 +31,7 @@ controller_execution_environments:
 # Job Templates
 #
 controller_templates:
-  - name: RHEL / Update RHEL Time Servers
+  - name: Craig RHEL / Update RHEL Time Servers
     ask_inventory_on_launch: true
     playbook: extensions/experiences/rhel/playbooks/configure_timesync.yml
     project: Ansible Portal Operations

@@ -34,7 +34,7 @@ controller_templates:
   - name: RHEL Operations / Patch RHEL Systems
     ask_inventory_on_launch: true
     playbook: extensions/experiences/rhel_patching/playbooks/patch_rhel_systems.yml
-    project: RHEL Operations / Project
+    project: Craig RHEL Operations / Project
     survey_enabled: true
     labels:
       - craig_br.portal_experience_demo
