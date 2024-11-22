@@ -12,7 +12,7 @@ controller_labels:
 # Projects
 #
 controller_projects:
-  - name: RHEL Operations / Project
+  - name: Craig RHEL Operations / Project
     organization: "{{ organization }}"
     scm_branch: feature-rhel-aa
     scm_clean: false
@@ -33,7 +33,7 @@ controller_execution_environments:
 controller_templates:
   - name: RHEL Operations / Patch RHEL Systems
     ask_inventory_on_launch: true
-    playbook: extensions/experiences/rhel/playbooks/patch_rhel_systems.yml
+    playbook: extensions/experiences/rhel_patching/playbooks/patch_rhel_systems.yml
     project: RHEL Operations / Project
     survey_enabled: true
     labels:

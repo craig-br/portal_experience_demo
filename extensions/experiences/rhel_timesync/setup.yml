@@ -40,5 +40,6 @@ controller_templates:
       - craig_br.portal_experience_demo
       - rhel_experience
       - configure_timesync
-    survey_spec: "{{ lookup('file', playbook_dir + 'template_surveys/configure_timesync.yml') }}"
+    # survey_spec: "{{ lookup('file', playbook_dir + 'template_surveys/configure_timesync.yml') }}"
+    survey_spec: "{{ lookup('file', experience.path.replace('setup.yml', '') + 'template_surveys/configure_timesync.yml') | from_yaml }}"
     execution_environment: RHEL Operations / Execution Environment
